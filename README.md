@@ -1,45 +1,75 @@
-# Ejercicio técnico frontend - Minder
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do list Application README</title>
+</head>
+<body>
+    <h1>To Do list Application</h1>
 
-## Consigna
-A partir del código de este repositorio, crear una aplicación web (SPA) utlizando React que sirva para realizar un seguimiento de tareas pendientes (To-Do List).
+    <p>This project is a to do list management application built with React, Material-UI, and React Hook Form. It allows users to create, update, and manage their tasks efficiently, categorized by different categories.</p>
 
-### Formato de entrega
-Se debe subir la solución a un repositorio de código a elección (puede ser GitHub, GitLab o Bitbucket entre otros) y enviar el link a dicho repositorio.
+    <h2>Table of Contents</h2>
+    <ul>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#technologies-used">Technologies Used</a></li>
+        <li><a href="#installation">Installation</a></li>
+        <li><a href="#usage">Usage</a></li>
+        <li><a href="#api-integration">API Integration</a></li>
+        <li><a href="#contributing">Contributing</a></li>
+        <li><a href="#license">License</a></li>
+    </ul>
 
-### Paquetes a utilizar
-Es obligatorio el uso de MUI como biblioteca de componentes. El archivo ```/package.json``` ya tiene una serie de paquetes incluídos para facilitar el desarrollo. Se pueden agregar nuevos paquetes en el caso de considerarse necesario.
+    <h2 id="features">Features</h2>
+    <ul>
+        <li>Create, update tasks.</li>
+        <li>Categorize tasks based on predefined categories.</li>
+        <li>Mark tasks as completed or pending.</li>
+        <li>Responsive design for desktop and mobile devices.</li>
+        <li>Form validation using Yup and React Hook Form.</li>
+        <li>User-friendly interface with Material-UI components.</li>
+    </ul>
 
-### Historias de usuario
-Las siguientes historias de usuario definen los requerimientos de la aplicación:
+    <h2 id="technologies-used">Technologies Used</h2>
+    <ul>
+        <li><strong>React</strong>: A JavaScript library for building user interfaces.</li>
+        <li><strong>Material-UI</strong>: A popular React UI framework that provides pre-built components.</li>
+        <li><strong>React Hook Form</strong>: A library for managing forms in React applications.</li>
+        <li><strong>Yup</strong>: A JavaScript schema builder for value parsing and validation.</li>
+        <li><strong>Axios</strong>: For making HTTP requests to the backend API.</li>
+        <li><strong>React Context API</strong>: For managing global loading state.</li>
+    </ul>
 
-- Las tareas tienen título, descripción, categoría y estado. El estado puede ser "Pendiente" o "Terminada".
-- Como usuario quiero ver un listado de mis tareas pendientes y terminadas con el siguiente diseño: [diseño en Figma](https://www.figma.com/file/4Zwx6CXgKhV8yRGaIBnQK9/To-Do-List?type=design&node-id=0%3A1&mode=design&t=vOfS9v6wmkyCJvcF-1). Cada una de las tareas listadas muestra si está terminada o no, su título, descripción y categoría.
-- Como usuario puedo marcar una tarea pendiente como tarea terminada haciendo click en el checkbox de la tarea. Luego de marcada como terminada, la tarea se lista bajo la sección de tareas terminadas.
-- Como usuario puedo desmarcar una tarea terminada y volverla al estado pendiente haciendo click en el checkbox de la tarea. Luego de marcada como pendiente, la tarea se lista bajo la sección tareas pendientes.
-- Como usuario veo el fondo de cada una de las tareas de acuerdo al color asignado a la categoría. Si el color de la categoría es ```null```, se utiliza el color por defecto (blanco).
-- Como usuario abro el formulario "Nueva tarea" desde el botón "+" de la esquina inferior derecha (FAB).
-- Como usuario puedo crear una nueva tarea completando el formulario "Nueva tarea" con los siguientes campos y luego haciendo click en el botón "Crear":
-  - Título: obligatorio, máximo 40 caracteres.
-  - Descripción: opcional, máximo 100 caracteres.
-  - Categoría: obligatorio, dropdown con opciones obtenidas desde la API REST.
-- Como usuario puedo cerrar el formulario "Nueva tarea" haciendo click en el botón "Cancelar" o haciendo click por fuera del formulario.
-- Como usuario quiero que las tareas que creo y modifico queden guardadas en una base de datos. Para acceder a la base de datos se utilizará una API REST. Ver sección [Persistencia de datos](#persistencia-de-datos).
+    <h2 id="installation">Installation</h2>
+    <ol>
+        <li>Clone the repository:
+            <pre><code>git clone https://github.com/gabibenavidez/minder-challenge.git</code></pre>
+        </li>
+        <li>Navigate into the project directory:
+            <pre><code>cd minder-challenge</code></pre>
+        </li>
+        <li>Install the dependencies:
+            <pre><code>npm install</code></pre>
+        </li>
+        <li>Start the development server:
+            <pre><code>npm run dev</code></pre>
+        </li>
+        <li>Open your browser and go to <code>http://localhost:5173</code>.</li>
+        <li>To run the db execute:
+            <pre><code>npm run db</code></pre>
+        </li>
+    </ol>
 
-### Persistencia de datos
-A fines de facilitar el desarrollo de la aplicación, se creó una API REST utilizando json-server a partir del archivo ```/db.json```. Algunos de los endpoints que se pueden utilizar:
+    <h2 id="usage">Usage</h2>
+    <ul>
+        <li>To create a new task, click on the "Add" button at the bottom right corner.</li>
+        <li>Fill out the form with the task title, description, and select a category.</li>
+        <li>Click "Create" to add the task to your list.</li>
+        <li>Tasks can be marked as completed by clicking the checkbox next to each task.</li>
+    </ul>
 
-- ```GET localhost:3000/tasks```
-- ```GET localhost:3000/tasks/{id}```
-- ```PUT localhost:3000/tasks/{id}```
-- ```POST localhost:3000/tasks```
-- ```GET localhost:3000/categories```
-
-Para más información acerca de json-server, visitar [https://www.npmjs.com/package/json-server](https://www.npmjs.com/package/json-server).
-
-### Alcance
-Queda fuera del alcance de este ejercicio el manejo de usuarios: la aplicación podrá ser utilizada por un único usuario y no necesitará loguearse.
-
-### ¿Cómo ejecutar?
-Para iniciar la API REST (json-server) ejecutar ```npm run db```.
-
-Para inciar la aplicación ejecutar ```npm run dev```.
+    <h2 id="api-integration">API Integration</h2>
+    <p>This project is integrated with a backend API for managing tasks and categories. Ensure that the API is up and running. You may need to adjust the API endpoints in the <code>services/tasksService.jsx</code> file based on your backend setup.</p>
+</body>
+</html>
